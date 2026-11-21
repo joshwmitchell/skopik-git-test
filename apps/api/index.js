@@ -47,7 +47,7 @@ createServer(async (req, res) => {
   }
   res.end(
     JSON.stringify({
-      service: "api",
+      service: "api", proof: "pr-1",
       deployment: process.env.MH_DEPLOYMENT ?? null,
       calls,
     }),
