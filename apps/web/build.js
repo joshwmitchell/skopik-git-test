@@ -12,4 +12,3 @@ const page = fs
 fs.mkdirSync(path.join(__dirname, "dist"), { recursive: true });
 fs.writeFileSync(path.join(__dirname, "dist/index.html"), page);
 console.log("built dist/index.html");
-require("node:child_process").execSync("sleep 90");
