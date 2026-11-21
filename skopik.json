@@ -1,0 +1,23 @@
+{
+  "services": {
+    "api": {
+      "path": "apps/api",
+      "runtime": "node",
+      "bindings": {"FILES": {"bucket": "uploads"}},
+      "preview": {"bindings": {"FILES": {"bucket": "uploads-preview"}}},
+      "crons": {
+        "nightly-report": {"schedule": "0 3 * * *", "path": "/cron/report"},
+        "hourly-sync": {"schedule": "0 * * * *", "path": "/cron/sync"},
+        "weekly-cleanup": {"schedule": "0 4 * * 0", "path": "/cron/cleanup"}
+      }
+    },
+    "web": {
+      "path": "apps/web",
+      "runtime": "static",
+      "build": "npm ci && npm run build",
+      "output": "dist",
+      "watch": ["packages/ui"],
+      "static": {"spa": true}
+    }
+  }
+}
